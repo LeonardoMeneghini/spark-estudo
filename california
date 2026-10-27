@@ -1,0 +1,6 @@
+!pip install -q pyspark
+from pyspark.sql import SparkSession
+spark = SparkSession.builder.master("local[*]").appName("TesteInstalacaoSpark").getOrCreate()
+dataset = spark.read.csv('/content/sample_data/california_housing_test.csv',inferSchema=True, header =True)
+spark.stop()
+  
